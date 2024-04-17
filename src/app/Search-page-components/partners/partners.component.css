@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container {
+    background-color: white;
+    color: red;
+    text-align: center;
+    padding: 10px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.text_button {
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+    text-decoration-color: red;
+    display: block;
+    margin: auto;
+}
+.horizontal-line {
+    width: 100px; 
+    height: 3px;
+    background-color: red;
+}
+.image-container img[alt="AirfranceLogo"] {
+    width: 250px;
+    height: 23.2px;
+}
+
+.image-container img[alt="NouvelairLogo"] {
+    width: 250px;
+    height: 41.3px;
+}
+
+.image-container img[alt="TunisairLogo"] {
+    width: 250px;
+    height: 61.22px;
+}
+
+.image-container img[alt="TunisairExpressLogo"] {
+    width: 250px;
+    height: 73px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin: auto; 
+}
+
+.image-container img {
+    object-fit: contain;
+    margin: 0 40px;
+}

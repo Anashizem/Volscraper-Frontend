@@ -1,0 +1,166 @@
+form {
+  margin: 0 auto;
+  width: 1000px;
+  height: 300px;
+}
+.legend {
+  font-size: 18px;
+} 
+fieldset {
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+}
+.rectangle {
+  width: 1000px;
+  height: 200px; 
+  background-color: rgb(238, 225, 225);
+  border-radius: 10px; 
+  border: 2px solid; 
+  border-radius: 10px; 
+  padding: 20px; 
+  margin-top: 0px;
+}
+.container {
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-div {
+  padding: 5px;
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between; 
+  align-items: center; 
+  width: 100%; 
+}
+
+.radio-div {
+  padding: 10px;
+  display: flex;
+  flex-direction: row; 
+  width: 300px; 
+}
+.radio-label {
+  display: block;
+  margin-top: 10px;
+  margin-right: 0px;
+  width: 120px;
+}
+  
+label {
+  display: block;
+  margin-top: 10px;
+  margin-right: 20px;
+  width: 100%;
+}
+  
+select,
+input[type="date"],
+input[type="submit"] {
+  width: 100%;
+  padding: 30px;
+  margin-top: 5px;
+}
+  
+input[type="submit"] {
+  background-color: #E32E22;
+  color: white;
+  cursor: pointer;
+}
+
+
+.departure-place-div,
+.arrival-place-div,
+.date-div,
+.sub-button-div {
+  margin-bottom: 10px;
+}
+
+.departure-place-label,
+.arrival-place-label,
+.date-label {
+  display: block;
+  font-weight: bold;
+}
+
+.input-data{
+  width: 100%;
+  position: relative;
+  margin-bottom: -8px;
+}
+.input-data input{
+  background-color:  rgb(238, 225, 225);
+  width: 100%;
+  border: none;
+  font-size: 15px;
+  border-bottom: 1px solid gray;
+  outline: none;
+}
+
+.input-data input:focus ~ label,
+.input-data input:valid ~ label{
+  transform: translateY(-20px);
+  font-size: 15px;
+  color: #E32E22;
+}
+.input-data label{
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  color: grey;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.input-data .underline{
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  bottom: 0;
+}
+.input-data .underline:before{
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: #E32E22;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+.input-data input:focus ~ .underline:before,
+.input-data input:valid ~ .underline:before{
+  transform: scaleX(1);
+}
+
+.cssbuttons-io {
+  --primary-color: red;
+  --secondary-color: #fff;
+  --hover-color: #E32E22;
+  position: relative;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 0.8em;
+  cursor: pointer;
+  border: none;
+  background: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+
+.cssbuttons-io span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.8em 0.5em 0.8em 0.5em;
+}
+
+.cssbuttons-io:hover{
+    background: var(--hover-color); 
+    color: var(--secondary-color);}
+
+

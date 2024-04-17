@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="rectangle">
+    <form>
+      <fieldset>
+        <legend class="legend">Flight Information :</legend>
+        <div class="radio-div">
+          <!-- type field -->
+          <label class="radio-label">
+            <input type="radio" name="trip" value="aller-retour" [(ngModel)]="formDataService.formData.tripType" (change)="formDataService.onTripTypeChange($event)" checked> Round Trip
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="trip" value="aller-simple" [(ngModel)]="formDataService.formData.tripType" (change)="formDataService.onTripTypeChange($event)"> One Way
+          </label>
+        </div>
+        <div class="input-div">
+          <!-- From field -->
+          <div class="departure-place-div">
+            <label class="departure-place-label" for="from">From :</label>
+            <div class="input-data"><input type="text" id="from" name="from" [(ngModel)]="formDataService.formData.from" required><div class="underline"></div></div>
+          </div>
+          <!-- To field -->
+          <div class="arrival-place-div">
+            <label class="arrival-place-label" for="to">To :</label>
+            <div class="input-data"><input type="text" id="to" name="to" [(ngModel)]="formDataService.formData.to" required><div class="underline"></div></div>
+          </div>
+          <!-- Date Field -->
+          <div class="date-div">
+            <label class="date-label">
+              Travel Dates:
+              <ejs-daterangepicker *ngIf="formDataService.formData.tripType === 'aller-retour'" placeholder="Select dates" format="dd-MM-yyyy" (change)="formDataService.onDateRangeChange($event)"></ejs-daterangepicker>
+              <ejs-datepicker *ngIf="formDataService.formData.tripType === 'aller-simple'" placeholder="Select date" (change)="formDataService.onDateChange($event)"></ejs-datepicker>
+            </label>
+          </div>
+          <div (click)="openDialog()" class="sub-button-div">
+            <button class="cssbuttons-io">
+              <span>Search flights</span>
+            </button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
