@@ -17,11 +17,13 @@
           <div class="departure-place-div">
             <label class="departure-place-label" for="from">From :</label>
             <div class="input-data"><input type="text" id="from" name="from" [(ngModel)]="formDataService.formData.from" required><div class="underline"></div></div>
+            <div *ngIf="errorDepartureMessage" class="text-danger-place">{{ errorDepartureMessage }}</div>
           </div>
           <!-- To field -->
           <div class="arrival-place-div">
             <label class="arrival-place-label" for="to">To :</label>
             <div class="input-data"><input type="text" id="to" name="to" [(ngModel)]="formDataService.formData.to" required><div class="underline"></div></div>
+            <div *ngIf="errorDestinationMessage" class="text-danger-place">{{ errorDestinationMessage }}</div>  
           </div>
           <!-- Date Field -->
           <div class="date-div">
@@ -29,10 +31,11 @@
               Travel Dates:
               <ejs-daterangepicker *ngIf="formDataService.formData.tripType === 'aller-retour'" placeholder="Select dates" format="dd-MM-yyyy" (change)="formDataService.onDateRangeChange($event)"></ejs-daterangepicker>
               <ejs-datepicker *ngIf="formDataService.formData.tripType === 'aller-simple'" placeholder="Select date" (change)="formDataService.onDateChange($event)"></ejs-datepicker>
+              <div *ngIf="errorDateMessage" class="text-danger">{{ errorDateMessage }}</div>  
             </label>
           </div>
-          <div (click)="openDialog()" class="sub-button-div">
-            <button class="cssbuttons-io">
+          <div class="sub-button-div">
+            <button (click)="openDialog()" class="cssbuttons-io">
               <span>Search flights</span>
             </button>
           </div>

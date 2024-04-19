@@ -1,1 +1,52 @@
-<button class="my-button" (click)="openDialog()">Click Me</button>
+<!-- details-page.component.html -->
+<div *ngFor="let vol of flights" class="flight">
+    <section class="outward">
+        <h2>{{vol.demande_id}}</h2>
+        <h2 class="flight-title">Aller</h2>
+        <div class="airline">
+            <span class="airline-name">{{ vol.agence }}</span>
+            <img src="/assets/{{ vol.agence }}Logo.png" alt="{{ vol.agence }}" class="airline-logo">
+        </div>
+        <div class="flight-details">
+            <div class="departure">
+                <span class="place">{{ vol.outward_departure_place }}</span>
+                <span class="time">{{ vol.outward_time }}</span>
+            </div>
+            <div class="price-duration">
+                <span class="price">{{ vol.outward_price }}</span>
+                <span class="duration">{{ vol.duration_outward }}</span>
+            </div>
+            <div class="destination">
+                <span class="place">{{ vol.outward_arrival_place }}</span>
+                <span class="time">{{ vol.outward_date }}</span>
+            </div>
+        </div>
+    </section>
+    <hr class="separator">
+    <section class="return">
+        <h2 class="flight-title">Retour</h2>
+        <div class="airline">
+            <span class="airline-name">{{ vol.agence }}</span>
+            <img src="/assets/{{ vol.agence }}Logo.png" alt="{{ vol.agence }}" class="airline-logo">
+        </div>
+        <div class="flight-details">
+            <div class="departure">
+                <span class="place">{{ vol.return_departure_place }}</span>
+                <span class="time">{{ vol.return_time }}</span>
+            </div>
+            <div class="price-duration">
+                <span class="price">{{ vol.return_price }}</span>
+            </div>
+            <div class="duration">
+                <span class="duration">{{ vol.duration_return }}</span>
+            </div>
+            <div class="destination">
+                <span class="place">{{ vol.return_arrival_place }}</span>
+                <span class="time">{{ vol.return_date }}</span>
+            </div>
+        </div>
+    </section>
+    <div class="action">
+        <button class="select-flight">Sélectionner</button>
+    </div>
+</div>

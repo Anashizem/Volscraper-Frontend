@@ -1,5 +1,5 @@
 <div class="popup">
-  <a href="#" class="skip-link">Skip</a>
+  <a  (click)="onSkipSubmit()" class="skip-link">Skip</a>
   <form class="form">
     <div class="icon">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 34 34" height="34" color="red" width="34">
@@ -11,11 +11,14 @@
     </div>
     <div class="note">
       <label class="title">Subscribe for updates</label>
-      <span class="subtitle">Sign up for trip reminders and travel info. Enter your details below or click <a href="#" class="skip">Skip</a> to continue.</span>
+      <span class="subtitle">Sign up for trip reminders and travel info. Enter your details below or click <a  (click)="onSkipSubmit()" class="skip">Skip</a> to continue.</span>
     </div>
-    <input placeholder="Enter your name" title="Enter your name" name="name" type="text" class="input_field">
-    <input placeholder="Enter your e-mail" title="Enter your e-mail" name="email" type="email" class="input_field">
-    <input placeholder="Enter your country" title="Enter your country" name="country" type="text" class="input_field">
-    <button onclick="onSkipOrPopupSubmit()" class="submit">Submit</button>
+    <input [(ngModel)]="UserData.name" placeholder="Enter your name" title="Enter your name" name="name" type="text" class="input_field" required>
+    <div *ngIf="errorNameMessage" class="text-danger">{{ errorNameMessage }}</div>  
+    <input [(ngModel)]="UserData.email" placeholder="Enter your e-mail" title="Enter your e-mail" name="email" type="email" class="input_field" required>
+    <div *ngIf="errorEmailMessage" class="text-danger">{{ errorEmailMessage }}</div>  
+    <input [(ngModel)]="UserData.country" placeholder="Enter your country" title="Enter your country" name="country" type="text" class="input_field" required>
+    <div *ngIf="errorCountryMessage" class="text-danger">{{ errorCountryMessage }}</div>  
+    <button (click)="onPopupSubmit()"  type="submit" class="submit">Submit</button>
   </form>
 </div>

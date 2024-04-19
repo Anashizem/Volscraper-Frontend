@@ -9,7 +9,7 @@ import { AdvantageComponent } from './Search-page-components/advantage/advantage
 import { LoadPageComponent } from './load-page/load-page.component';
 import { PersonalisationPopupComponent } from './Search-page-components/personalisation-popup/personalisation-popup.component';
 import { RatingPopupComponent} from './rating-popup/rating-popup.component'
-import {DetailsPageComponent} from './details-page/details-page.component'
+import { DetailsPageComponent} from './details-page/details-page.component'
 
 
 const routes: Routes = [

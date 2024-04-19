@@ -1,7 +1,13 @@
+.container {
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 form {
   margin: 0 auto;
   width: 1000px;
-  height: 300px;
 }
 .legend {
   font-size: 18px;
@@ -16,19 +22,11 @@ fieldset {
 }
 .rectangle {
   width: 1000px;
-  height: 200px; 
   background-color: rgb(238, 225, 225);
   border-radius: 10px; 
   border: 2px solid; 
   border-radius: 10px; 
   padding: 20px; 
-  margin-top: 0px;
-}
-.container {
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .input-div {
@@ -164,3 +162,12 @@ input[type="submit"] {
     color: var(--secondary-color);}
 
 
+.text-danger {
+  color: #dc3545; /* Couleur rouge */
+  font-size: 14px;
+}
+.text-danger-place {
+  color: #dc3545; /* Couleur rouge */
+  font-size: 14px;
+  margin-top: 10px;
+}

@@ -1,14 +1,69 @@
-.my-button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 10px;
-  }
-  
+.flight {
+  border: 1px solid #ccc;
+  padding: 10px;    
+  max-width: 500px; 
+  margin: 0 auto; 
+  padding: 20px; 
+  border: 1px solid #ccc; 
+  border-radius: 10px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  background-color: #fff; 
+}
+
+.flight-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.airline {
+  margin-bottom: 10px;
+}
+
+.airline-name {
+  font-weight: bold;
+}
+
+.airline-logo {
+  max-width: 100px;
+  height: auto;
+}
+
+.flight-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.departure, .destination {
+  text-align: center;
+}
+
+.price, .time {
+  font-weight: bold;
+}
+
+.price {
+  color: green;
+}
+
+.select-flight {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.select-flight:hover {
+  background-color: #0056b3;
+}
+
+.separator {
+  width: 100%;
+  border: none;
+  border-top: 2px solid #ccc;
+  margin: 20px 0;
+}

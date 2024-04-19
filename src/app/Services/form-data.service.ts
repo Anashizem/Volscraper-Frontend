@@ -4,13 +4,14 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class FormDataService {
+
   formData: any = {
     tripType: 'aller-retour',
     from: '',
     to: '',
-    startDateOneWay: new Date(),
-    startDateRoundTrip: new Date(),
-    endDateValueRoundTrip: new Date()
+    startDateOneWay: null,
+    startDateRoundTrip: null,
+    endDateValueRoundTrip: null
   };
   onTripTypeChange(event: any) {
     this.formData.tripType = event.target.value;

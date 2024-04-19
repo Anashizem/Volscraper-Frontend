@@ -24,11 +24,13 @@ html {
     text-decoration: underline;
     color: red;
     font-family: "Poppins";
+    cursor: pointer;
   }
   a {
     color: red;
     font-family: "Poppins";
     text-decoration: underline;
+    cursor: pointer;
   }
 
   
