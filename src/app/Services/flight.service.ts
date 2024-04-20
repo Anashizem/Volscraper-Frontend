@@ -6,12 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FlightService {
-  private baseUrl = 'http://localhost:8084'; 
+  private baseUrl = 'http://localhost:8085'; 
 
   constructor(private http: HttpClient) { }
 
   // Méthode pour récupérer tous les vols depuis le backend
-  getAllFlights(): Observable<any[]> {
+  getFlightsById(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/flights`);
   }
 

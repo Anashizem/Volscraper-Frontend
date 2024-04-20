@@ -38,10 +38,9 @@ export class DetailsPageComponent implements OnInit {
   }
 
   loadFlights() {
-    const specificDemandeId = '6621825043cc9c8ff73c2061';
-    this.flightService.getAllFlights().subscribe(
+    this.flightService.getFlightsById().subscribe(
       (data: FlightData[]) => {
-        this.flights = data.filter(flight => flight.demande_id === specificDemandeId);
+        this.flights = data;
       },
       (error) => {
         console.error('Une erreur s\'est produite lors du chargement des vols : ', error);

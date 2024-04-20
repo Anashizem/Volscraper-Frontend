@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormDataService } from '../../Services/form-data.service';
 import { HttpClient } from '@angular/common/http'; 
 import { Router } from '@angular/router';
+import { MatDialogRef } from '@angular/material/dialog'; // Importez MatDialogRef
 
 
 @Component({
@@ -14,10 +15,13 @@ export class PersonalisationPopupComponent {
   errorEmailMessage: string = '';
   errorCountryMessage: string = '';
 
-  constructor(private http: HttpClient, public formDataService: FormDataService, private router: Router) {}
-  
-  UserData: any = {};
+  constructor(private http: HttpClient, public formDataService: FormDataService, private router: Router, public dialogRef: MatDialogRef<PersonalisationPopupComponent>) {}
 
+
+
+  
+  isPopupOpen :boolean = true;
+  UserData: any = {};
   // Submit button with popup form
   onPopupSubmit() {
     this.errorNameMessage = '';
@@ -41,7 +45,6 @@ export class PersonalisationPopupComponent {
       from: this.formDataService.formData.from,
       to: this.formDataService.formData.to,
     };
-    // Vérification et ajout des champs non vides
     if (this.UserData.name) {
       DataToSend.name = this.UserData.name;
     }
@@ -57,6 +60,8 @@ export class PersonalisationPopupComponent {
     } else if (this.formDataService.formData.tripType === 'aller-simple') {
       DataToSend.startDateOneWay = this.formatDate(this.formDataService.formData.startDateOneWay);
     }
+    this.dialogRef.close(); 
+    this.router.navigateByUrl('/load-page');
     this.http.post<any>('http://localhost:5000/api/search_flights', DataToSend)
       .subscribe(
         response => {
@@ -83,6 +88,7 @@ export class PersonalisationPopupComponent {
     } else if (this.formDataService.formData.tripType === 'aller-simple') {
       DataToSend.startDateOneWay = this.formatDate(this.formDataService.formData.startDateOneWay);
     }
+    this.dialogRef.close(); 
     this.router.navigateByUrl('/load-page');
     this.http.post<any>('http://localhost:5000/api/search_flights', DataToSend)
       .subscribe(
@@ -92,11 +98,9 @@ export class PersonalisationPopupComponent {
         },
         error => {
           console.error(error);
-          // Gérer ici la logique appropriée en cas d'erreur
         }
       );
   }
-  // Fonction pour formater la date
   formatDate(date: Date): string {
     const year = date.getFullYear();
     const month = ('0' + (date.getMonth() + 1)).slice(-2);

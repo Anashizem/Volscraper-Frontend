@@ -24,7 +24,9 @@ export class FormDataService {
   onDateChange(event: any) {
     this.formData.startDateOneWay = event.value;
   }
-  
+  resetFormData() {
+    this.formData = {}; 
+  }
   
 
   constructor() { }

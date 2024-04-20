@@ -17,6 +17,15 @@ import { PersonalisationPopupComponent } from './Search-page-components/personal
 import { RatingPopupComponent } from './rating-popup/rating-popup.component';
 import { DetailsPageComponent } from './details-page/details-page.component';
 import { MatCardModule} from '@angular/material/card'
+
+
+
+
+
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+const config: SocketIoConfig = { url: 'http://localhost:5000', options: {} };
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +47,9 @@ import { MatCardModule} from '@angular/material/card'
     DateRangePickerModule,
     FormsModule,
     FontAwesomeModule,
-    MatCardModule
+    MatCardModule,
+    SocketIoModule.forRoot(config)
+
   ],
   providers: [
     provideClientHydration(),
