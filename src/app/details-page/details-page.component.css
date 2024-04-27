@@ -1,69 +1,512 @@
-.flight {
-  border: 1px solid #ccc;
-  padding: 10px;    
-  max-width: 500px; 
-  margin: 0 auto; 
-  padding: 20px; 
-  border: 1px solid #ccc; 
-  border-radius: 10px; 
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
-  background-color: #fff; 
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "poppins";
 }
-
-.flight-title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.airline {
-  margin-bottom: 10px;
-}
-
-.airline-name {
-  font-weight: bold;
-}
-
-.airline-logo {
-  max-width: 100px;
+.search {
   height: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #374F79;
+  padding: 20px;
 }
 
-.flight-details {
+.containerHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  width: 1300px;
+  margin: auto;
 }
 
-.departure, .destination {
-  text-align: center;
+.searchContainer {
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 0px 20px;
+  width: 1000px;
 }
 
-.price, .time {
+.typevol,
+.departurePlace,
+.destinationPlace,
+.dateAllerSimple,
+.dateAller,
+.dateRetour {
+  /* font-weight: bold; */
+  margin-bottom: 5px;
+  color: #333; 
+  font-size: 14px; 
+}
+.bold {
   font-weight: bold;
-}
 
-.price {
-  color: green;
 }
-
-.select-flight {
-  background-color: #007bff;
-  color: #fff;
+.modifyButton {
+  align-items: center;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  justify-content: center;
+  text-align: center;
+  vertical-align: middle;
+  background: #fff;
   cursor: pointer;
+  font-weight: bold;
+  height: 50px;
+  width: 200px;
+  border-radius: 30px;
+  color: #333; 
+  font-size: 14px; 
+  border: 1px solid #ccc;
+
+}
+.vertical-separator {
+  width: 2px;
+  height: 50px;
+  background-color: #000;
+  margin: 0 10px;
 }
 
-.select-flight:hover {
-  background-color: #0056b3;
+.ScrapingContainer {
+  background-image: linear-gradient(rgba(20, 20, 20, 0.500),rgba(20, 20, 20, 0.300)),url(/assets/background6.jpg);
+  background-repeat:no-repeat;
+  background-position: center;
+  background-size:cover;
+  background-attachment:fixed;
 }
 
+.flight-card{
+  width:600px;
+  margin: 50px auto;
+  max-height: 400px;
+  border-radius: 50px;
+  overflow:hidden;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.4);
+  background-color: #fff;
+}
+.tableContainer {
+  padding: 10px;
+}
+
+@keyframes bg-spin {
+  to {
+    --border-angle: 1turn;
+  }
+}
+
+.box {
+  --border-angle: 0turn; 
+  --main-bg: conic-gradient(
+      from var(--border-angle),
+      #fff,
+      #fff 5%,
+      #fff 60%,
+      #fff 95%
+    );
+  border: solid 7px transparent;
+  border-radius: 2em;
+  --gradient-border: conic-gradient(from var(--border-angle), transparent 25% , #009EAF, #0076A0 ,#374F79 99%, transparent);
+  background: 
+    var(--main-bg) padding-box,
+    var(--gradient-border) border-box, 
+    var(--main-bg) border-box;
+  background-position: center center;
+  animation: bg-spin 3s linear infinite;
+}
+
+.box:hover {
+  animation-play-state: paused;
+}
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
+}
+
+.flight-card-header{
+  height: 30px;
+  padding: 5px 30px;
+  position: relative;
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+
+}
+.flight-title {
+  font-weight: bold;
+  color:#000;
+  font-size:20px;
+  letter-spacing: 2px;
+}
+.airline-logo {
+  margin-top: 10px;
+  max-width: 150px;
+}
+.SelectButton {
+  align-items: center;
+  border: none;
+  justify-content: center;
+  text-align: center;
+  vertical-align: middle;
+  background: #374F79;
+  cursor: pointer;
+  font-weight: bold;
+  height: 50px;
+  width: 150px;
+  border-radius: 30px;
+  color: #fff; 
+  font-size: 15px; 
+  border: 1px solid #ccc;
+
+}
+.flight-card-content-outward{
+    width: 500px;
+    display: inline-block;
+    .flight-row{
+      width: 100%;
+      padding: 5px 50px;
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      .plane-outward{
+        text-align: center;
+        position: relative;
+        img{
+        width: 50px;
+        }
+        &:before{
+          content: '';
+          width: 120px;
+          height: 3px;
+          background: #efefef;
+          position: absolute;
+          top: 23px;
+          left: -65px;
+        }
+        &:after{
+          content: '';
+          width: 120px;
+          height: 3px;
+          background-color: #efefef;
+          position:absolute;
+          top: 23px;
+          right: -65px;
+          
+        }
+        }
+      }
+    .flight-from{
+      text-align: left;
+      float:left;
+
+    }
+    .flight-to{
+      text-align: right;
+      float:right;
+
+    }
+      .flight-from,.flight-to{
+        span{
+          display:block;
+          align-items: center;
+          justify-content: center;
+        }
+        .from-code, .to-code{
+          font-size: 30px;
+          color: #002C5F;
+          font-weight:200;
+        }
+        .from-city, .to-city{
+          font-size: 15px;
+          color: #002C5F;
+          font-weight:400;
+          margin-top: 5px;
+        }
+      }
+    .flight-details-row{
+      width:100%;
+      display:grid;
+      padding: 0 50px;
+      grid-template-columns: 1fr 1fr 1fr 1fr; 
+      span{
+        display:block;
+      }
+      .title{
+        color:#6a8597;
+        font-size:16px;
+        letter-spacing: 3px;
+       }
+      .detail{
+        margin-top:.2em;
+        color:#002C5F;
+        font-size:18px;
+      }
+      .flight-operator{
+        text-align:left;
+        float:left;
+      }
+      .flight-class{
+        float:right;
+        text-align:right;
+      }
+      .flight-number{
+        padding-left:20px;
+      }
+      .flight-price{
+        padding-left:40px;
+      }
+    }
+}
+.flight-card-content-return{
+  width: 500px;
+  display: inline-block;
+  .flight-row{
+    width: 100%;
+    padding: 5px 50px;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    .plane-return{
+      text-align: center;
+      position: relative;
+      img{
+      width: 50px;
+      transform: scaleX(-1);
+      }
+      &:before{
+        content: '';
+        width: 120px;
+        height: 3px;
+        background: #efefef;
+        position: absolute;
+        top: 23px;
+        left: -65px;
+      }
+      &:after{
+        content: '';
+        width: 120px;
+        height: 3px;
+        background-color: #efefef;
+        position:absolute;
+        top: 23px;
+        right: -65px;
+        
+      }
+      }
+    }
+  .flight-from{
+    text-align: left;
+    float:left;
+
+  }
+  .flight-to{
+    text-align: right;
+    float:right;
+
+  }
+    .flight-from,.flight-to{
+      span{
+        display:block;
+        align-items: center;
+        justify-content: center;
+      }
+      .from-code, .to-code{
+        font-size: 30px;
+        color: #002C5F;
+        font-weight:200;
+      }
+      .from-city, .to-city{
+        font-size: 15px;
+        color: #002C5F;
+        font-weight:400;
+        margin-top: 5px;
+      }
+    }
+  .flight-details-row{
+    width:100%;
+    display:grid;
+    padding: 0 50px;
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    span{
+      display:block;
+    }
+    .title{
+      color:#6a8597;
+      font-size:16px;
+      letter-spacing: 3px;
+     }
+    .detail{
+      margin-top:.2em;
+      color:#002C5F;
+      font-size:18px;
+    }
+    .flight-operator{
+      text-align:left;
+      float:left;
+    }
+    .flight-class{
+      float:right;
+      text-align:right;
+    }
+    .flight-number{
+      padding-left:20px;
+    }
+    .flight-price{
+      padding-left:40px;
+    }
+  }
+  }
+.booking-div{
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns : 2fr 2fr; 
+
+}
+.booking-title {
+  background-color: #fafbfc;
+  font-weight: bold;
+  font-size: 20px;
+  color: #6a8597;
+}
+.booking-price {
+  margin: auto;
+  padding: 20px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.total-price {
+  margin-top:.2em;
+  color:#002C5F;
+  font-size:18px;
+}
 .separator {
   width: 100%;
   border: none;
   border-top: 2px solid #ccc;
-  margin: 20px 0;
+  margin: 10px 0;
 }
+.best-price {
+  max-width: 40px;
+  max-height: 40px;
+  margin-right: 20px;
+}
+
+
+
+
+
+/* FEEDBACK BUTTON STYLES */
+
+.usrp-feedback-button-2 {
+  position: fixed;
+  top: 65%;
+  right: 0;
+  overflow: hidden;
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-border-radius: 0 0 2px 2px;
+  -moz-border-radius: 0 0 2px 2px;
+  border-radius: 0 0 2px 2px;
+  -webkit-transform-origin: top right;
+  -moz-transform-origin: top right;
+  -ms-transform-origin: top right;
+  transform-origin: top right;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+/* Icon background */
+.usrp-feedback-button-2 i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.2);
+}
+/* Transitions */
+.usrp-feedback-button-2 span {
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+/* Icon */
+.usrp-feedback-button-2 svg {
+  width: 100%;
+  height: 100%;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.usrp-feedback-button-2 svg .fill {
+  fill: #ffffff;
+}
+/* Text */
+.usrp-feedback-button-2 span {
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 15px 0 65px;
+  white-space: nowrap;
+  background: #374F79;
+  color: #ffffff;
+}
+/* Hover */
+.usrp-feedback-button-2:hover span {
+  background: #0076A0;
+}
+/*
+
+.box {
+  width: 60vmin;
+  height: 50vmin;
+  display: grid;
+  place-content: center;
+  color: white;
+  text-shadow: 0 1px 0 #000;
+ 
+  --border-angle: 0turn; // For animation.
+  --main-bg: conic-gradient(
+      from var(--border-angle),
+      #213,
+      #112 5%,
+      #112 60%,
+      #213 95%
+    );
+ 
+  border: solid 5px transparent;
+  border-radius: 2em;
+  --gradient-border: conic-gradient(from var(--border-angle), transparent 25%, #08f, #f03 99%, transparent);
+ 
+  background:
+    // padding-box clip this background in to the overall element except the border.
+    var(--main-bg) padding-box,
+    // border-box extends this background to the border space
+    var(--gradient-border) border-box,
+    // Duplicate main background to fill in behind the gradient border. You can remove this if you want the border to extend "outside" the box background.
+    var(--main-bg) border-box;
+ 
+  background-position: center center;
+
+  animation: bg-spin 3s linear infinite;
+  @keyframes bg-spin {
+    to {
+      --border-angle: 1turn;
+    }
+  }
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
+}
+*/

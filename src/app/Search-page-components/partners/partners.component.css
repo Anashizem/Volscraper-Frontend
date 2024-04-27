@@ -1,10 +1,11 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: "poppins";
 }
 .container {
-    background-color: white;
-    color: red;
+    background-color: #F5DDDC;
+    color: #E32E22;
     text-align: center;
     padding: 10px;
     height: 250px;
@@ -14,18 +15,17 @@
     justify-content: center;
 }
 
-.text_button {
+.text_partners {
     font-size: 30px;
     font-weight: bold;
     color: black;
-    text-decoration-color: red;
-    display: block;
+    text-decoration-color: #E32E22;
     margin: auto;
 }
 .horizontal-line {
     width: 100px; 
     height: 3px;
-    background-color: red;
+    background-color: #E32E22;
 }
 .image-container img[alt="AirfranceLogo"] {
     width: 250px;

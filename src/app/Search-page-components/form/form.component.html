@@ -29,8 +29,8 @@
           <div class="date-div">
             <label class="date-label">
               Travel Dates:
-              <ejs-daterangepicker *ngIf="formDataService.formData.tripType === 'aller-retour'" placeholder="Select dates" format="dd-MM-yyyy" (change)="formDataService.onDateRangeChange($event)"></ejs-daterangepicker>
-              <ejs-datepicker *ngIf="formDataService.formData.tripType === 'aller-simple'" placeholder="Select date" (change)="formDataService.onDateChange($event)"></ejs-datepicker>
+              <ejs-daterangepicker *ngIf="formDataService.formData.tripType === 'aller-retour'" [min]='minDate' placeholder="Select dates" format="dd-MM-yyyy" (change)="formDataService.onDateRangeChange($event)"></ejs-daterangepicker>
+              <ejs-datepicker *ngIf="formDataService.formData.tripType === 'aller-simple'" [min]='minDate' placeholder="Select date" (change)="formDataService.onDateChange($event)"></ejs-datepicker>
               <div *ngIf="errorDateMessage" class="text-danger">{{ errorDateMessage }}</div>  
             </label>
           </div>

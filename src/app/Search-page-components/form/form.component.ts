@@ -12,6 +12,11 @@ export class FormComponent {
   errorDepartureMessage: string = '';
   errorDestinationMessage: string = '';
   errorDateMessage: string = '';
+  public today: Date = new Date();
+  public currentYear: number = this.today.getFullYear();
+  public currentMonth: number = this.today.getMonth();
+  public currentday: number = this.today.getDate();
+  public minDate: Object = new Date(this.currentYear, this.currentMonth, this.currentday);
 
   constructor(private dialogRef: MatDialog, public formDataService: FormDataService) {}
 

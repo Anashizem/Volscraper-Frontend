@@ -1,60 +1,49 @@
 *{
-    padding: 0;
     margin: 0;
-    font-family: "Poppins";
-    
+    padding: 0;
+    font-family: "poppins";
 }
 .container {
     background: url("/assets/back-home-page.png");
     background-repeat: no-repeat;
     background-size: cover;
-    color: aliceblue;
+    color: #FFF7F3;
     font-weight: bold;
-    /* padding: 20px; */
     width: 100%;
     height: 100%;
-    position:relative;
 }
-
-
-
-h1 {
+.div-text {
+    position: absolute;
+    top: 45%;
+    left: 5%;
+}
+.text{
     font-size: 2.5rem; 
     font-weight: bold;
-    line-height: 1.5; 
-    margin-top: 150px;
-    margin-left: 60px;
-
+    line-height: 1.3; 
 }
 
 .highlight {
-    color: red; 
+    color: #E32E22; 
 }
 button {
-    --primary-color: red;
-    --secondary-color: #fff;
-    --hover-color: #087ccc;
+    --primary-color: #E32E22;
     --arrow-width: 10px;
     --arrow-stroke: 2px;
     box-sizing: border-box;
     border: 0;
     border-radius: 20px;
-    color: var(--secondary-color);
     padding: 1em 1.8em;
     background: var(--primary-color);
+    color: #FFF7F3;
     display: flex;
     align-items: center;
     font-weight: bold;
     font-size: 1.2em;
     position: absolute;
-
-    left: 5%;
+    /* left: 6%; */
     margin-top: 10px;
-
+    cursor: pointer;
 }
 
-button:hover {
-    background: var(--hover-color); 
-    color: var(--secondary-color); 
-}
 

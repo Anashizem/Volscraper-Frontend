@@ -8,8 +8,11 @@ import { PartnersComponent } from './Search-page-components/partners/partners.co
 import { AdvantageComponent } from './Search-page-components/advantage/advantage.component';
 import { LoadPageComponent } from './load-page/load-page.component';
 import { PersonalisationPopupComponent } from './Search-page-components/personalisation-popup/personalisation-popup.component';
-import { RatingPopupComponent} from './rating-popup/rating-popup.component'
+import { RatingPopupComponent} from './details-page-components/rating-popup/rating-popup.component'
 import { DetailsPageComponent} from './details-page/details-page.component'
+import { MeetOurTeamComponent } from './Search-page-components/meet-our-team/meet-our-team.component';
+import { TravelwingsfooterComponent } from './Search-page-components/travelwingsfooter/travelwingsfooter.component';
+import { UsersListComponent } from './users-list/users-list.component';
 
 
 const routes: Routes = [
@@ -19,12 +22,16 @@ const routes: Routes = [
   { path: 'form', component: FormComponent },
   { path: 'partners', component: PartnersComponent },
   { path: 'advantage', component: AdvantageComponent },
+  { path: 'meetourteam', component: MeetOurTeamComponent },
+  { path: 'footer', component: TravelwingsfooterComponent },
   { path: 'load-page', component: LoadPageComponent },
   { path : 'personalisation',component: PersonalisationPopupComponent},
   { path : 'rating',component: RatingPopupComponent},
   { path : 'details',component: DetailsPageComponent},
-  { path: '', redirectTo: 'home-page', pathMatch: 'full'},
+  { path : 'user',component: UsersListComponent},
+  { path: '', redirectTo: 'home-page', pathMatch: 'full' },
   { path: '**', redirectTo: 'home-page' }
+  
 ];
 
 

@@ -12,7 +12,11 @@ export class FlightService {
 
   // Méthode pour récupérer tous les vols depuis le backend
   getFlightsById(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/flights`);
+    return this.http.get<any[]>(`${this.baseUrl}/flights/latest`);
   }
 
+  getLatestSearch(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/searchs/latest`);
+  }
+  
 }

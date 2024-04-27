@@ -1,52 +1,128 @@
-<!-- details-page.component.html -->
-<div *ngFor="let vol of flights" class="flight">
-    <section class="outward">
-        <h2>{{vol.demande_id}}</h2>
-        <h2 class="flight-title">Aller</h2>
-        <div class="airline">
-            <span class="airline-name">{{ vol.agence }}</span>
-            <img src="/assets/{{ vol.agence }}Logo.png" alt="{{ vol.agence }}" class="airline-logo">
-        </div>
-        <div class="flight-details">
-            <div class="departure">
-                <span class="place">{{ vol.outward_departure_place }}</span>
-                <span class="time">{{ vol.outward_time }}</span>
-            </div>
-            <div class="price-duration">
-                <span class="price">{{ vol.outward_price }}</span>
-                <span class="duration">{{ vol.duration_outward }}</span>
-            </div>
-            <div class="destination">
-                <span class="place">{{ vol.outward_arrival_place }}</span>
-                <span class="time">{{ vol.outward_date }}</span>
-            </div>
-        </div>
-    </section>
-    <hr class="separator">
-    <section class="return">
-        <h2 class="flight-title">Retour</h2>
-        <div class="airline">
-            <span class="airline-name">{{ vol.agence }}</span>
-            <img src="/assets/{{ vol.agence }}Logo.png" alt="{{ vol.agence }}" class="airline-logo">
-        </div>
-        <div class="flight-details">
-            <div class="departure">
-                <span class="place">{{ vol.return_departure_place }}</span>
-                <span class="time">{{ vol.return_time }}</span>
-            </div>
-            <div class="price-duration">
-                <span class="price">{{ vol.return_price }}</span>
-            </div>
-            <div class="duration">
-                <span class="duration">{{ vol.duration_return }}</span>
-            </div>
-            <div class="destination">
-                <span class="place">{{ vol.return_arrival_place }}</span>
-                <span class="time">{{ vol.return_date }}</span>
-            </div>
-        </div>
-    </section>
-    <div class="action">
-        <button class="select-flight">Sélectionner</button>
-    </div>
+<div class="search"> 
+  <div class="containerHeader">
+      <div class="searchContainer">
+          <div class="typevol"><span class="bold">Type de vol : </span>{{ search?.tripType }}</div>
+          <div class="vertical-separator"></div>
+          <div class="departurePlace"><span class="bold"> Départ : </span>{{ search?.from }}</div>
+          <div class="vertical-separator"></div>
+          <div class="destinationPlace"><span class="bold">Destination : </span>{{ search?.to }}</div>
+          <div class="vertical-separator"></div>
+          <div *ngIf="search?.startDateOneWay" class="dateAllerSimple"><span class="bold">Date : </span>{{ search?.startDateOneWay }}</div>
+          <div *ngIf="search?.startDateRoundTrip" class="dateAller"><span class="bold">Date de vol d'aller : </span>{{ search?.startDateRoundTrip }}</div>
+          <div *ngIf="search?.startDateRoundTrip" class="vertical-separator"></div>
+          <div *ngIf="search?.endDateValueRoundTrip" class="dateRetour"><span class="bold">Date de vol de retour : </span>{{ search?.endDateValueRoundTrip }}</div>
+      </div>
+      <button class="modifyButton" (click)="modifiySearch()">Modifier la recherche</button>
+  </div>
 </div>
+<section class="ScrapingContainer">
+  <div class="tableContainer">
+    <div *ngFor="let vol of flights" class="flight-card" [ngClass]="{'cheapest-flight box': vol.id === cheapestFlight?.id}">
+        <div class="flight-card-header">
+            <span class="flight-title">Flight Information :</span>
+            <img src="/assets/{{ vol.agence }}Logo.png" alt="{{ vol.agence }}" class="airline-logo">
+        </div>
+        <hr class="separator">
+      <div class="flight-card-content-outward">
+        <div class="flight-row">
+          <div class="flight-from">
+            <span class="from-code">{{vol.outward_departure_place_abr}}</span>
+            <span class="from-city">{{ vol.outward_departure_place }}</span>
+          </div>
+          <div class="plane-outward">
+                <img src="https://cdn.onlinewebfonts.com/svg/img_537856.svg" alt="">
+          </div>
+          <div class="flight-to">
+            <span class="to-code">{{vol.outward_arrival_place_abr}}</span>
+            <span class="to-city">{{ vol.outward_arrival_place }}</span>
+          </div>
+        </div>
+        <div class="flight-details-row">
+          <div class="flight-operator">
+            <span class="title">DEPART</span>
+            <span class="detail">{{ vol.outward_departure_time }}</span>
+          </div>
+          <div class="flight-number">
+            <span class="title">DURATION</span>
+            <span class="detail">{{ vol.duration_outward }}</span>
+          </div>
+          <div class="flight-price">
+            <span class="title">PRICE</span>
+            <span class="detail">{{ vol.outward_price }}DT</span>
+          </div>
+          <div class="flight-class">
+            <span class="title">ARRIVES</span>
+            <span class="detail">{{ vol.outward_arrival_time}}</span>
+          </div>
+          
+        </div>
+      </div>
+      <hr *ngIf="search?.tripType === 'aller-retour'" class="separator">
+      <div *ngIf="search?.tripType === 'aller-retour'" class="flight-card-content-return">
+        <div class="flight-row">
+          <div class="flight-from">
+            <span class="from-code">{{vol.return_departure_place_abr}}</span>
+            <span class="from-city">{{ vol.return_departure_place }}</span>
+          </div>
+          <div class="plane-return">
+            <img src="https://cdn.onlinewebfonts.com/svg/img_537856.svg" alt="">
+          </div>
+          <div class="flight-to">
+            <span class="to-code">{{vol.return_arrival_place_abr}}</span>
+            <span class="to-city">{{ vol.return_arrival_place }}</span>
+          </div>
+        </div>
+        <div class="flight-details-row">
+          <div class="flight-operator">
+            <span class="title">DEPART</span>
+            <span class="detail">{{ vol.return_departure_time }}</span>
+          </div>
+          <div class="flight-number">
+            <span class="title">DURATION</span>
+            <span class="detail">{{ vol.duration_return }}</span>
+          </div>
+          <div class="flight-price">
+            <span class="title">PRICE</span>
+            <span class="detail">{{ vol.return_price }}DT</span>
+          </div>
+          <div class="flight-class">
+            <span class="title">ARRIVES</span>
+            <span class="detail">{{ vol.return_arrival_time }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="booking-div">
+        <div class="booking-price">
+          <div class="best-price-div" *ngIf="vol === cheapestFlight">
+            <img class="best-price" src="/assets/best-price.png" alt="bestPrice">    
+          </div>
+          <div class="booking-title">TOTAL PRICE :</div>
+          <div class="total-price"> {{ calculateTotalPrice(vol) }}DT</div>
+        </div>
+        <div class="booking-button" (click)="bookingFlight(vol.url_of_vol)">
+            <button class="SelectButton">BOOK NOW</button>
+        </div>  
+      </div>
+    </div>
+    <div class="usrp-feedback-button-2" (click)="OnClickFeedback()">
+      <i>
+          <svg viewBox="0 0 50 50" enable-background="0 0 50 50">
+              <path class="fill" d="M37.1,15.9L35,13.7c-0.9-0.9-2.6-0.9-3.5,0l-2.1,2.1c0,0,0,0,0,0s0,0,0,0L16.1,29.1c0,0,0,0,0,0s0,0,0,0l-0.3,0.3c-0.1,0.1-0.1,0.1-0.1,0.2L14.2,36c0,0.2,0,0.3,0.1,0.5c0.1,0.1,0.2,0.1,0.4,0.1c0,0,0.1,0,0.1,0l6.5-1.5c0.1,0,0.2-0.1,0.2-0.1l0.2-0.2c0,0,0,0,0,0s0,0,0,0l13.2-13.2c0,0,0,0,0,0c0,0,0,0,0,0l2.1-2.1C38.1,18.4,38.1,16.8,37.1,15.9z M21.4,33.7l-4.2-4.2l12.5-12.5l4.2,4.3L21.4,33.7z M16.6,30.3l4,4l-5.2,1.2L16.6,30.3z M36.4,18.7l-1.8,1.8l-4.2-4.3l1.8-1.8c0.6-0.6,1.6-0.6,2.1,0l2.1,2.1C37,17.1,37,18.1,36.4,18.7z"/>
+          </svg>            
+      </i>
+      <span>Feedback</span>
+    </div>
+ </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+

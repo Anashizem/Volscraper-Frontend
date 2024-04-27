@@ -63,10 +63,10 @@ import {
 } from "./chunk-ZQTV6FMM.js";
 import {
   NG_VALUE_ACCESSOR
-} from "./chunk-363U6CR5.js";
+} from "./chunk-QOYKYUCX.js";
 import {
   CommonModule
-} from "./chunk-PNVGK4OF.js";
+} from "./chunk-TQHFMB4L.js";
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -92,10 +92,11 @@ import {
   ɵɵdirectiveInject,
   ɵɵloadQuery,
   ɵɵqueryRefresh
-} from "./chunk-NJN5JYBJ.js";
+} from "./chunk-ZZBINMIB.js";
+import "./chunk-SJDNSO6V.js";
 import {
   __decorate
-} from "./chunk-JKR55PDT.js";
+} from "./chunk-AOF462FV.js";
 import "./chunk-GLLL6ZVE.js";
 
 // node_modules/@syncfusion/ej2-angular-base/src/util.js

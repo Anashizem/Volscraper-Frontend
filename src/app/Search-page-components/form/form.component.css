@@ -4,7 +4,16 @@
   justify-content: center;
   align-items: center;
 }
-
+.rectangle {
+  width: 1000px;
+  height: 200px;
+  background-color: #FFF4EE;
+  border-radius: 10px; 
+  border: 2px solid; 
+  border-radius: 10px; 
+  padding: 20px; 
+  margin-bottom: 120px;
+}
 form {
   margin: 0 auto;
   width: 1000px;
@@ -20,16 +29,8 @@ fieldset {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-weight: bold;
 }
-.rectangle {
-  width: 1000px;
-  background-color: rgb(238, 225, 225);
-  border-radius: 10px; 
-  border: 2px solid; 
-  border-radius: 10px; 
-  padding: 20px; 
-}
-
 .input-div {
+  background-color: #FFF4EE;
   padding: 5px;
   display: flex;
   flex-direction: row; 
@@ -93,7 +94,7 @@ input[type="submit"] {
   margin-bottom: -8px;
 }
 .input-data input{
-  background-color:  rgb(238, 225, 225);
+  background-color: #FFF4EE;
   width: 100%;
   border: none;
   font-size: 15px;
@@ -137,17 +138,15 @@ input[type="submit"] {
 }
 
 .cssbuttons-io {
-  --primary-color: red;
-  --secondary-color: #fff;
-  --hover-color: #E32E22;
-  position: relative;
+  margin-top: 10px;
+  margin-right: 10px;
   font-size: 18px;
   font-weight: bold;
   border-radius: 0.8em;
   cursor: pointer;
   border: none;
-  background: var(--primary-color);
-  color: var(--secondary-color);
+  background: #E32E22;
+  color: #FFF4EE ;
 }
 
 
@@ -158,16 +157,17 @@ input[type="submit"] {
 }
 
 .cssbuttons-io:hover{
-    background: var(--hover-color); 
-    color: var(--secondary-color);}
+    background: #E32E22; 
+    color: black;
+  }
 
 
 .text-danger {
-  color: #dc3545; /* Couleur rouge */
+  color: #dc3545; 
   font-size: 14px;
 }
 .text-danger-place {
-  color: #dc3545; /* Couleur rouge */
+  color: #dc3545; 
   font-size: 14px;
   margin-top: 10px;
 }

@@ -1,31 +1,12 @@
  *{
     padding: 0;
     margin: 0;
-    font-family: Poppins;
+    font-family: "Poppins";
   
   }
 .header-container {
-  background-image: linear-gradient(rgba(20, 20, 20, 0.774),rgba(20, 20, 20, 0.452)),url("/assets/3333.jpg");
+  background-image: linear-gradient(rgba(20, 20, 20, 0.354),rgba(20, 20, 20, 0.252)),url("/assets/background2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-.rectangle {
-  width: 1000px;
-  height: 200px; 
-  background-color: rgb(238, 225, 225);
-  border-radius: 10px; 
-  border: 2px solid; 
-  border-radius: 10px; 
-  padding: 20px; 
-  margin-top: 0px;
-}
-#lastLine {
-  width: 100px;
-  height: 1px;
-  background-color:red;
-  margin-top: 45px ; /* Ajoute une marge plus grande pour séparer la dernière ligne du paragraphe suivant */
-}
-svg{
-  margin-top: 2rem;
+  width: 100%;
 }
