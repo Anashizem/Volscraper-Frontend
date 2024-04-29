@@ -63,10 +63,10 @@ import {
 } from "./chunk-ZQTV6FMM.js";
 import {
   NG_VALUE_ACCESSOR
-} from "./chunk-QOYKYUCX.js";
+} from "./chunk-RKXLFQVZ.js";
 import {
   CommonModule
-} from "./chunk-TQHFMB4L.js";
+} from "./chunk-MIQ5QDE7.js";
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -92,12 +92,11 @@ import {
   ɵɵdirectiveInject,
   ɵɵloadQuery,
   ɵɵqueryRefresh
-} from "./chunk-ZZBINMIB.js";
-import "./chunk-SJDNSO6V.js";
+} from "./chunk-VQNWHEX5.js";
 import {
   __decorate
-} from "./chunk-AOF462FV.js";
-import "./chunk-GLLL6ZVE.js";
+} from "./chunk-JKR55PDT.js";
+import "./chunk-CPNXOV62.js";
 
 // node_modules/@syncfusion/ej2-angular-base/src/util.js
 function applyMixins(derivedClass, baseClass) {

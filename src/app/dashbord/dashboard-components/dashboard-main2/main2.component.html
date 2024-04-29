@@ -1,0 +1,33 @@
+<div class="body" [ngClass]="getBodyClass()">
+    <div class="testimonial-heading">
+      <span>Comments</span>
+      <h1>Clients Says</h1>
+    </div>
+    <section id="testimonials">
+      <div *ngFor="let r of ratings" class="testimonial-box-container">
+        <div class="testimonial-box">
+              <div class="box-top">
+                <div class="profile">
+                  <div class="profile-img">
+                    <!-- <img src="/assets/profile.png" alt="" /> -->
+                  </div>
+                  <div class="name-user">
+                    <strong>{{r.name}}</strong>
+                    <span></span>
+                  </div>
+                </div>
+                <div class="admin-rating">
+                  <div class="stars">
+                    <span class="star" *ngFor="let star of [1, 2, 3, 4, 5]">
+                      <span class="star-icon" [class.full]="star <= r.stars">★</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="client-comment">
+                <p>{{r.message}}</p>
+              </div>
+            </div>
+          </div>
+    </section>
+</div>

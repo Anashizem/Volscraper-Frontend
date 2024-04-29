@@ -3,6 +3,7 @@ import { FormDataService } from '../../Services/form-data.service';
 import { HttpClient } from '@angular/common/http'; 
 import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog'; // Importez MatDialogRef
+import { FormStateService } from '../../Services/form-state.service';
 
 
 @Component({
@@ -15,11 +16,10 @@ export class PersonalisationPopupComponent {
   errorEmailMessage: string = '';
   errorCountryMessage: string = '';
 
-  constructor(private http: HttpClient, public formDataService: FormDataService, private router: Router, public dialogRef: MatDialogRef<PersonalisationPopupComponent>) {}
+  constructor(private http: HttpClient, public formDataService: FormDataService, private router: Router, public dialogRef: MatDialogRef<PersonalisationPopupComponent>,private formStateService: FormStateService) {}
 
 
 
-  
   isPopupOpen :boolean = true;
   UserData: any = {};
   // Submit button with popup form
@@ -61,6 +61,7 @@ export class PersonalisationPopupComponent {
       DataToSend.startDateOneWay = this.formatDate(this.formDataService.formData.startDateOneWay);
     }
     this.dialogRef.close(); 
+    this.formStateService.setFormSubmitted(true);
     this.router.navigateByUrl('/load-page');
     this.http.post<any>('http://localhost:5000/api/search_flights', DataToSend)
       .subscribe(

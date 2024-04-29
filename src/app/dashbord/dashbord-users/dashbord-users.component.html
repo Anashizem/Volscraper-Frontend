@@ -1,0 +1,4 @@
+<div class="container">
+    <app-dashboard-side-nav (onToggleSideNav)="onToggleLeSideNav($event)"></app-dashboard-side-nav>
+    <app-users-list [collapsed]="isSideNavCollapsed" [screenWidth]="screenWidth"></app-users-list>
+</div>

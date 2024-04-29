@@ -4,7 +4,8 @@ import { FlightService } from '../Services/flight.service';
 import { Router } from '@angular/router'; 
 import { MatDialog } from '@angular/material/dialog';
 import { RatingPopupComponent} from '../details-page-components/rating-popup/rating-popup.component'
-
+import { PersonalisationPopupComponent } from '../Search-page-components/personalisation-popup/personalisation-popup.component';
+import { FormStateService  } from "../Services/form-state.service";
 // Interface pour la structure des données de vol avec les prix en nombre
 interface FlightData {
   id: string;
@@ -57,7 +58,7 @@ export class DetailsPageComponent implements OnInit {
   search: SearchData | null = null;
   cheapestFlight: FlightData | undefined;
 
-  constructor(private dialogRef: MatDialog , private flightService: FlightService, private router: Router) { }
+  constructor(private dialogRef: MatDialog , private flightService: FlightService, private router: Router, private formStateService: FormStateService) { }
 
   ngOnInit(): void {
     this.loadFlights();
@@ -129,7 +130,8 @@ export class DetailsPageComponent implements OnInit {
     return mostExpensiveFlight;
   }
   OnClickFeedback() {
-    this.dialogRef.open(RatingPopupComponent);
-
+    if (this.formStateService.getFormSubmitted()) {
+      this.dialogRef.open(RatingPopupComponent);
+    }
   }
 }

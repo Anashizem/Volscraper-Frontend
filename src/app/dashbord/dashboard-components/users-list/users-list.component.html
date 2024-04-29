@@ -1,0 +1,71 @@
+<div class="body" [ngClass]="getBodyClass()">
+        <div class="row">
+            <div class="card add">
+                <span class="Card-title">Add Users</span>
+                <hr/>
+                <form #form="ngForm">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Name</mat-label>
+                        <input matInput name="name" [(ngModel)]="name" [ngModelOptions]="{standalone : true}" placeholder="Ex. Anas" required>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>E-mail</mat-label>
+                        <input matInput name="email" [(ngModel)]="email" [ngModelOptions]="{standalone : true}" placeholder="Ex. anas.hizem@ensi-uma.tn" required>
+                        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                          Please enter a valid email address.
+                        </mat-error>
+                        <mat-error *ngIf="emailFormControl.hasError('required')">
+                          Email is required.
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Country</mat-label>
+                        <input matInput name="country" [(ngModel)]="country" [ngModelOptions]="{standalone : true}" placeholder="Ex. Tunisia" required>
+                    </mat-form-field>
+                    <div class="example-button-row">
+                        <button mat-flat-button color="accent" [disabled]="!form.valid" (click)="save()">Save</button>
+                        <button mat-flat-button color="warn" (click)="clear()">Clear</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card">
+                <span class="Card-title">Users List</span>
+                <hr/>
+                <div class="mat-elevation-z8">
+                    <table mat-table [dataSource]="dataSource">
+                        <ng-container matColumnDef="id">
+                            <th mat-header-cell *matHeaderCellDef> User ID </th>
+                            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                        </ng-container>                  
+                        <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef> Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="email">
+                            <th mat-header-cell *matHeaderCellDef> User E-mail </th>
+                            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                        </ng-container>                  
+                        <ng-container matColumnDef="country">
+                            <th mat-header-cell *matHeaderCellDef> User Country </th>
+                            <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="action">
+                            <th mat-header-cell *matHeaderCellDef> Action </th>
+                            <td mat-cell *matCellDef="let row">
+                                <button mat-flat-button (click)="setUpdate(row)">
+                                    <mat-icon aria-hidden="false" aria-label="Edit">edit</mat-icon>
+                                </button>
+                                &nbsp;
+                                <button mat-flat-button (click)="SetDelete(row)">
+                                    <mat-icon aria-hidden="false" aria-label="Delete">delete</mat-icon>
+                                </button>
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                    <mat-paginator [pageSizeOptions]="[3]" showFirstLastButtons aria-label="Select page of periodic elements"></mat-paginator>
+                </div>  
+            </div>
+        </div>
+</div>

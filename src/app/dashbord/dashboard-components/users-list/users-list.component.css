@@ -1,0 +1,63 @@
+.body {
+    width: calc(100% - 5rem);
+    height: 100%;
+    margin-left: 5rem;
+    z-index: 0;
+    position: relative;
+    top: 0;
+    transition: all .5s ease;
+    background-color :#4b4b4b;
+    padding: 3rem;
+}
+.body-trimmed {
+    width: calc(100% - 16.5625rem);
+    margin-left: 16.5625rem;
+}
+.body-md-screen {
+    width: calc(100% - 5rem);
+    margin-left: 5rem;
+}
+.row {
+    padding-top: 150px;
+    margin: auto;
+    width: 1150px;
+    height: 350px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.add {
+    width: 300px;
+}
+.card span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.card hr {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.Card-title{
+    font-size: 20px;
+    color: #fff;
+}
+
+  
+.example-full-width {
+    width: 100%;
+}
+.example-button-row {
+    display: table-cell;
+    max-width: 600px;
+}
+.example-button-row .mat-mdc-button-base {
+    margin: 8px 8px 8px 0;
+}
