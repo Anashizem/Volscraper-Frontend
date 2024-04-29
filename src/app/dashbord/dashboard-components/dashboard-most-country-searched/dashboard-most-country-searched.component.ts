@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ChartOptions , ChartData } from 'chart.js';
 
 @Component({
   selector: 'app-dashboard-most-country-searched',
@@ -8,11 +9,37 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DashboardMostCountrySearchedComponent implements OnInit {
   countryStatistics: { [key: string]: number } = {};
-  barChartOptions: any = {
-    title: {
-      display: true,
-      text: 'Number of Searches by Country'
+  barChartOptions: ChartOptions = {
+    responsive: true,
+    scales: {
+      x: {
+        stacked: true,
+        ticks: {
+          color: 'white',
+          font : {
+            size : 16,
+            family : 'poppins'
+          }
+        },
+        grid : {
+          color : 'rgb(255, 255, 255 , 0.2)'
+        }
+      },
+      y: {
+        stacked: true,
+        ticks: {
+          color: 'white',
+          font : {
+            size : 16,
+            family : 'poppins'
+          }
+        },
+        grid : {
+          color : 'rgb(255, 255, 255 , 0.2)'
+        }
+      },
     },
+    
   };
   barChartData: any = {
     labels: [],
@@ -68,7 +95,7 @@ export class DashboardMostCountrySearchedComponent implements OnInit {
     const countDict: { [key: string]: number } = {};
 
     data.forEach(search => {
-      const destination = search.to.toLowerCase(); // Convertir la destination en minuscules pour éviter les doublons
+      const destination = search.to.toLowerCase();
       countDict[destination] = countDict[destination] ? countDict[destination] + 1 : 1;
     });
 

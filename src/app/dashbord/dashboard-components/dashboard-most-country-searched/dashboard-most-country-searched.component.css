@@ -4,6 +4,9 @@
     font-weight: bold;
     font-family: 'poppins';
     color: #fff;
-    margin-top: 5px;
+    margin-top: 10px;
     margin-bottom: 10px;
+}
+.chart-warpper {
+    padding: 20px;
 }

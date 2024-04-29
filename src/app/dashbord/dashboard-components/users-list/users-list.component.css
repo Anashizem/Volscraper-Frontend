@@ -1,3 +1,6 @@
+*{
+    font-family: 'poppins';
+}
 .body {
     width: calc(100% - 5rem);
     height: 100%;
@@ -20,20 +23,24 @@
 .row {
     padding-top: 150px;
     margin: auto;
-    width: 1150px;
+    width: 1200px;
     height: 350px;
     display: flex;
     justify-content: space-between;
-    gap: 10px;
+    gap: 5px;
 }
 .card {
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 5px 5px #939393;
+    border-radius: 25px;
+    align-items: center;
+    padding: 20px;
+    background-color: #263238;
 }
 .add {
-    width: 300px;
+    width: 250px;
 }
 .card span {
     font-size: 20px;
@@ -61,3 +68,18 @@
 .example-button-row .mat-mdc-button-base {
     margin: 8px 8px 8px 0;
 }
+table , mat-paginator  {
+    background-color: transparent;
+    color: #fff;
+}
+.mat-elevation-z8 {
+    box-shadow: none;
+}
+td , th {
+    color: #fff;
+}
+
+button {
+    background: transparent;
+}
+

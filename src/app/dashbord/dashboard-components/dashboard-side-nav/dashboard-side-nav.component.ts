@@ -2,12 +2,12 @@ import { Component, OnInit , Output , EventEmitter, HostListener, Optional} from
 import {navbarData} from './nav-data'
 import {faXmark} from '@fortawesome/free-solid-svg-icons';
 import { style, transition, trigger ,animate, keyframes } from '@angular/animations';
-import { Transform } from 'stream';
 
 interface sideNavToggle {
     screenWidth : number;
     collapsed : boolean;
-  }
+}
+
 @Component({
   selector: 'app-dashboard-side-nav',
   templateUrl: './dashboard-side-nav.component.html',

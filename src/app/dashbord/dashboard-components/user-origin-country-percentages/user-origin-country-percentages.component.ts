@@ -34,7 +34,8 @@ export class UserOriginCountryPercentagesComponent implements OnInit {
         text: 'User Origin Country Percentages',
         style: {
           color: '#fff',
-          fontFamily : 'poppins'
+          fontFamily : 'poppins',
+          fontSize : '20px',
         }
       },
       series: [{
