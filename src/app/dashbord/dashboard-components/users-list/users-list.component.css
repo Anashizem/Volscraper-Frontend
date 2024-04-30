@@ -1,6 +1,10 @@
+
 *{
     font-family: 'poppins';
 }
+
+
+
 .body {
     width: calc(100% - 5rem);
     height: 100%;
@@ -60,14 +64,9 @@
   
 .example-full-width {
     width: 100%;
+    height: 70px;
 }
-.example-button-row {
-    display: table-cell;
-    max-width: 600px;
-}
-.example-button-row .mat-mdc-button-base {
-    margin: 8px 8px 8px 0;
-}
+
 table , mat-paginator  {
     background-color: transparent;
     color: #fff;
@@ -83,3 +82,105 @@ button {
     background: transparent;
 }
 
+fa-icon {
+    color: #fff;
+    font-size: 24px;
+}
+.udpate-btn{
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: green;
+    cursor: pointer;
+}
+.delete-btn{
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: red;
+    cursor: pointer;
+}  
+
+.update-btn-icon {
+    font-size: 22px;
+    width: 1rem;
+    min-width: 2rem;
+    text-align: center;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.delete-btn-icon {
+    font-size: 22px;
+    width: 1rem;
+    min-width: 2rem;
+    text-align: center;
+    padding: 10px 5px;
+    cursor: pointer;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.save-btn {
+    background-color: green;
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+}
+.clear-btn {
+    background-color: red;
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container {
+    
+    color: white;
+    border-radius: 30px;
+    border: 2px solid  white;
+    width: 450px;
+    height: 50px;
+    margin-left: 400px;
+    align-items: center;
+
+}
+::ng-deep .mat-mdc-paginator-icon {
+    fill: white !important;
+}
+/* users-list.component.css */
+
+::ng-deep .swal2-styled.swal2-confirm{
+    background-color: #28a745 !important;
+    width: 100px !important;
+    height: 50px !important;
+    cursor: pointer !important;
+    border: none !important;
+    border-radius: 10px !important;
+    color: #fff !important;
+}
+ 
+::ng-deep .swal2-styled.swal2-cancel{
+    background-color: #af2e03 !important;
+    width: 100px !important;
+    height: 50px !important;
+    cursor: pointer !important;
+    border: none !important;
+    border-radius: 10px !important;
+    color: #fff !important;
+
+}
+::ng-deep .swal2-styled {
+    box-shadow: none  !important;
+}

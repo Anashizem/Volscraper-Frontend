@@ -22,9 +22,9 @@
                         <mat-label>Country</mat-label>
                         <input matInput name="country" [(ngModel)]="country" [ngModelOptions]="{standalone : true}" placeholder="Ex. Tunisia" required>
                     </mat-form-field>
-                    <div class="example-button-row">
-                        <button mat-flat-button color="accent" [disabled]="!form.valid" (click)="save()">Save</button>
-                        <button mat-flat-button color="warn" (click)="clear()">Clear</button>
+                    <div class="button-row">
+                        <button class="save-btn" color="accent" [disabled]="!form.valid" (click)="save()">Save</button>
+                        <button class="clear-btn" mat-flat-button color="warn" (click)="clear()">Clear</button>
                     </div>
                     
                 </form>
@@ -53,19 +53,20 @@
                         <ng-container matColumnDef="action">
                             <th mat-header-cell *matHeaderCellDef> Action </th>
                             <td mat-cell *matCellDef="let row">
-                                <button mat-flat-button (click)="setUpdate(row)">
-                                    <mat-icon aria-hidden="false" aria-label="Edit">edit</mat-icon>
+                                <button mat-flat-button (click)="setUpdate(row)" class="udpate-btn">
+                                    <fa-icon aria-hidden="false" aria-label="Edit" classe="update-btn-icon" [icon]="faEdit">edit</fa-icon>
                                 </button>
                                 &nbsp;
-                                <button mat-flat-button (click)="SetDelete(row)">
-                                    <mat-icon aria-hidden="false" aria-label="Delete">delete</mat-icon>
+                                <button mat-flat-button (click)="SetDelete(row)" class="delete-btn">
+                                    <fa-icon aria-hidden="false" aria-label="Delete" class="delete-btn-icon" [icon]="faTrash">delete</fa-icon>
                                 </button>
                             </td>
                         </ng-container>
                         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                     </table>
-                    <mat-paginator [pageSizeOptions]="[3]" showFirstLastButtons aria-label="Select page of periodic elements"></mat-paginator>
+                    <mat-paginator  [pageSizeOptions]="[3]" showFirstLastButtons aria-label="Select page of periodic elements"></mat-paginator>
+
                 </div>  
             </div>
         </div>

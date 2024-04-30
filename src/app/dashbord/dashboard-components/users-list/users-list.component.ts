@@ -4,13 +4,18 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2'
-
+import {
+  faEdit,
+  faTrash,
+} from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.css']
 })
 export class UsersListComponent implements OnInit {
+  faEdit = faEdit;
+  faTrash = faTrash
   @Input() collapsed = false ;
   @Input() screenWidth = 0 ;
 
@@ -64,7 +69,7 @@ export class UsersListComponent implements OnInit {
       this.http.post("http://localhost:8085/Users/save", bodydata , {responseType:"text"}).subscribe((resultData:any)=>{
         // alert("User registered successfully!");
         Swal.fire({
-          position: "top-end",
+          position: "center",
           icon: "success",
           title: "User registered successfully",
           showConfirmButton: false,
@@ -92,7 +97,7 @@ export class UsersListComponent implements OnInit {
     this.http.put("http://localhost:8085/Users/Update", bodydata , {responseType:"text"}).subscribe((resultData:any)=>{
       // alert("User updated successfully!");
       Swal.fire({
-        position: "top-end",
+        position: "center",
         icon: "success",
         title: "User updated successfully",
         showConfirmButton: false,
@@ -120,10 +125,9 @@ export class UsersListComponent implements OnInit {
         // alert(resultData);
         const swalWithBootstrapButtons = Swal.mixin({
           customClass: {
-            confirmButton: "btn btn-success",
-            cancelButton: "btn btn-danger"
+           
           },
-          buttonsStyling: false
+          buttonsStyling: true
         });
         swalWithBootstrapButtons.fire({
           title: "Are you sure?",
